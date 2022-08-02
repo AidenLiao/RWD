@@ -1,0 +1,168 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.fram{
+    margin: 0 auto;
+    background-color: #9fc4cf;
+}
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+.header h1 a{
+    display: block; /*a是行內元素，因此要讓他變成區塊元素*/
+    background-image: url(https://ppt.cc/fSftYx@.jpg); /*加上背景圖片*/
+    width: 320px; /*設定成圖片的長根寬*/
+    height: 320px;
+    text-indent: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+/*
+以h1包覆一個a連結，加上一個背景圖片可以讓圖片有連結效果。
+*/
+.header ul{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items:flex-start;
+}
+.header li{
+    margin-top: 10px;
+}
+.header ul a{
+    text-decoration: none;
+    background-color: rgb(228, 201, 145);
+    padding: 8px 50px;
+    font-size: 20px;
+    border: 1px solid rgb(93, 92, 92);
+    border-radius: 5px;
+    color: rgb(25, 19, 39);
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 20px;
+}
+.overview{
+    width: 70%;
+    border: 2px solid gray;
+    margin-right:10px ;
+}
+.overview h2{
+    font-size: 30px;
+    padding:15px 0 20px 10px;
+}
+.overview p{
+    font-size: 22px;
+    line-height: 50px;
+    padding:15px 0 20px 10px;
+}
+.banner{
+    width: 30%;
+}
+.banner img{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;    
+}
+.header ul a:hover{
+    color:red;
+    background-color: white;
+}
+.header ul li:hover{
+    transform: scale(1.2);
+}
+/*桌電至少1024px以上;平板760px~1024px;手機320px~760px*/
+/*當解析度達760px以內時，網頁出現的改應對*/
+@media (max-width:760px) {    
+    .header ul{
+        flex-direction:column;
+        align-items: center;
+    }
+    .overview{
+        width: 100%; 
+    /*
+    1.以百分比設定寬度，會讓標的物隨解析度自己調整
+    2.此時的寬度為父元素的寬度
+    3.若父元素未設置寬度，如左右有設定margin則只會顯示左邊(表示又邊無盡頭)
+    */
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .banner img{
+        padding: 10px;
+    }
+}
+/*當解析度達320px以內時，網頁出現的改應對*/
+@media (max-width:320px) { 
+    .header {
+        flex-direction:column;
+        align-items: center;
+    }
+    .header ul{
+        flex-direction:row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+   
+    .header ul li {
+        margin: 20px auto 10px auto;
+        text-align: center;
+    }
+    .header ul a {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+}
